@@ -1,0 +1,172 @@
+{
+  "stores": [
+    {
+      "store_name": "متجر النخيل",
+      "store_url": "https://al-nakheel.salla.sa",
+      "products_response": {
+        "status": 200,
+        "success": true,
+        "data": [
+          {
+            "id": 1001,
+            "name": "زيت زيتون بكر ممتاز 750مل",
+            "price": { "amount": 45.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/d4a017/white?text=Olive+Oil",
+            "sku": "OIL-OLIVE-750",
+            "url": "https://al-nakheel.salla.sa/products/1001",
+            "status": "sale"
+          },
+          {
+            "id": 1002,
+            "name": "تمر مجدول فاخر 500غ",
+            "price": { "amount": 35.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/8B4513/white?text=Dates",
+            "sku": "DATE-MEDJOOL-500",
+            "url": "https://al-nakheel.salla.sa/products/1002",
+            "status": "sale"
+          },
+          {
+            "id": 1003,
+            "name": "قهوة عربية مطحونة بالهيل 500غ",
+            "price": { "amount": 28.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/3E2000/white?text=Arabic+Coffee",
+            "sku": "COFFEE-ARABIC-500",
+            "url": "https://al-nakheel.salla.sa/products/1003",
+            "status": "sale"
+          },
+          {
+            "id": 1004,
+            "name": "عسل سدر طبيعي 250غ",
+            "price": { "amount": 89.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/FFC200/black?text=Sidr+Honey",
+            "sku": "HONEY-SIDR-250",
+            "url": "https://al-nakheel.salla.sa/products/1004",
+            "status": "sale"
+          },
+          {
+            "id": 1005,
+            "name": "ماء زمزم 5 لتر",
+            "price": { "amount": 18.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/87CEEB/black?text=Zamzam+Water",
+            "sku": "WATER-ZAMZAM-5L",
+            "url": "https://al-nakheel.salla.sa/products/1005",
+            "status": "sale"
+          }
+        ],
+        "cursor": { "current": null, "next": null, "count": 5, "has_more": false }
+      }
+    },
+    {
+      "store_name": "بيت المنزل",
+      "store_url": "https://beit-almanzil.salla.sa",
+      "products_response": {
+        "status": 200,
+        "success": true,
+        "data": [
+          {
+            "id": 2001,
+            "name": "زيت زيتون بكر ممتاز 750 مل",
+            "price": { "amount": 47.50, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/d4a017/black?text=Olive+Oil+2",
+            "sku": "OLIVE-OIL-750ML",
+            "url": "https://beit-almanzil.salla.sa/products/2001",
+            "status": "sale"
+          },
+          {
+            "id": 2002,
+            "name": "أرز بسمتي طويل الحبة 5 كجم",
+            "price": { "amount": 32.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/F5DEB3/black?text=Basmati+Rice",
+            "sku": "RICE-BASMATI-5KG",
+            "url": "https://beit-almanzil.salla.sa/products/2002",
+            "status": "sale"
+          },
+          {
+            "id": 2003,
+            "name": "زبادي طبيعي كامل الدسم 180غ",
+            "price": { "amount": 3.50, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/FFFAF0/black?text=Yogurt",
+            "sku": "YOGURT-FULL-180G",
+            "url": "https://beit-almanzil.salla.sa/products/2003",
+            "status": "sale"
+          },
+          {
+            "id": 2004,
+            "name": "عصير برتقال طازج 1 لتر",
+            "price": { "amount": 12.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/FF8C00/white?text=Orange+Juice",
+            "sku": "JUICE-OJ-1L",
+            "url": "https://beit-almanzil.salla.sa/products/2004",
+            "status": "sale"
+          },
+          {
+            "id": 2005,
+            "name": "حليب كامل الدسم 1 لتر",
+            "price": { "amount": 5.50, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/FFFAFA/black?text=Full+Cream+Milk",
+            "sku": "MILK-FULL-1L",
+            "url": "https://beit-almanzil.salla.sa/products/2005",
+            "status": "sale"
+          }
+        ],
+        "cursor": { "current": null, "next": null, "count": 5, "has_more": false }
+      }
+    },
+    {
+      "store_name": "متجر الطازج",
+      "store_url": "https://al-tazij.salla.sa",
+      "products_response": {
+        "status": 200,
+        "success": true,
+        "data": [
+          {
+            "id": 3001,
+            "name": "تمر مجدول ممتاز 500 جرام",
+            "price": { "amount": 38.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/8B4513/white?text=Medjool+Dates",
+            "sku": "DATES-MEDJOOL-500G",
+            "url": "https://al-tazij.salla.sa/products/3001",
+            "status": "sale"
+          },
+          {
+            "id": 3002,
+            "name": "صابون يدين مضاد للبكتيريا 250مل",
+            "price": { "amount": 8.50, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/B0E0E6/black?text=Hand+Soap",
+            "sku": "SOAP-ANTIBAC-250ML",
+            "url": "https://al-tazij.salla.sa/products/3002",
+            "status": "sale"
+          },
+          {
+            "id": 3003,
+            "name": "منظف متعدد الأغراض برائحة الليمون 1 لتر",
+            "price": { "amount": 14.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/FFFF00/black?text=Multipurpose+Cleaner",
+            "sku": "CLEAN-LEMON-1L",
+            "url": "https://al-tazij.salla.sa/products/3003",
+            "status": "sale"
+          },
+          {
+            "id": 3004,
+            "name": "حفاضات أطفال مقاس 3 - 60 قطعة",
+            "price": { "amount": 45.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/FFB6C1/black?text=Baby+Diapers",
+            "sku": "DIAPERS-SIZE3-60PCS",
+            "url": "https://al-tazij.salla.sa/products/3004",
+            "status": "sale"
+          },
+          {
+            "id": 3005,
+            "name": "شامبو للشعر الجاف والتالف 400مل",
+            "price": { "amount": 22.00, "currency": "SAR" },
+            "thumbnail": "https://placehold.co/400x400/9370DB/white?text=Shampoo",
+            "sku": "SHAMPOO-DRY-400ML",
+            "url": "https://al-tazij.salla.sa/products/3005",
+            "status": "sale"
+          }
+        ],
+        "cursor": { "current": null, "next": null, "count": 5, "has_more": false }
+      }
+    }
+  ]
+}

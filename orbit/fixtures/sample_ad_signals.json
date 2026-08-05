@@ -1,0 +1,39 @@
+{
+  "meta_signals": [
+    {
+      "search_term": "زيت زيتون",
+      "page_name": "متجر النخيل",
+      "ad_count_active": 12
+    },
+    {
+      "search_term": "تمر مجدول",
+      "page_name": "متجر النخيل",
+      "ad_count_active": 7
+    },
+    {
+      "search_term": "قهوة عربية",
+      "page_name": "متجر النخيل",
+      "ad_count_active": 4
+    },
+    {
+      "search_term": "عسل سدر",
+      "page_name": "متجر النخيل",
+      "ad_count_active": 9
+    },
+    {
+      "search_term": "أرز بسمتي",
+      "page_name": "بيت المنزل",
+      "ad_count_active": 3
+    },
+    {
+      "search_term": "حفاضات أطفال",
+      "page_name": "متجر الطازج",
+      "ad_count_active": 18
+    },
+    {
+      "search_term": "شامبو",
+      "page_name": "متجر الطازج",
+      "ad_count_active": 6
+    }
+  ]
+}
