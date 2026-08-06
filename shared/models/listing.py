@@ -32,6 +32,7 @@ class Listing(Base):
     store_name: Mapped[str] = mapped_column(Text, nullable=False)
     store_url: Mapped[str | None] = mapped_column(Text)
     external_id: Mapped[str | None] = mapped_column(Text)
+    gtin: Mapped[str | None] = mapped_column(Text)
     listing_title_raw: Mapped[str] = mapped_column(Text, nullable=False)
     listing_image_url: Mapped[str | None] = mapped_column(Text)
     price: Mapped[Decimal | None] = mapped_column(Numeric(12, 2))

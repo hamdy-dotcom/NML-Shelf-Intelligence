@@ -93,18 +93,28 @@ def pull_meta_ads_job() -> None:
 
         now = datetime.now(timezone.utc)
         for sig in signals:
-            db.add(
-                AdSignal(
+            stmt = (
+                pg_insert(AdSignal)
+                .values(
                     id=uuid.uuid4(),
                     platform=AdPlatform.meta,
+                    search_term=sig.search_term,
                     ad_count_active=sig.ad_count_active,
                     observed_at=now,
                     product_id=None,
                     listing_id=None,
                 )
+                .on_conflict_do_update(
+                    constraint="uq_ad_signal_platform_term",
+                    set_={
+                        "ad_count_active": sig.ad_count_active,
+                        "observed_at": now,
+                    },
+                )
             )
+            db.execute(stmt)
         db.commit()
-        logger.info("Stored %d Meta ad signals", len(signals))
+        logger.info("Upserted %d Meta ad signals", len(signals))
     except Exception:
         logger.exception("Failed to pull Meta ad signals")
         db.rollback()

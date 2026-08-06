@@ -2,7 +2,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, Enum, ForeignKey, Index, Integer
+from sqlalchemy import DateTime, Enum, ForeignKey, Index, Integer, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -19,6 +19,7 @@ class AdPlatform(str, enum.Enum):
 class AdSignal(Base):
     __tablename__ = "ad_signals"
     __table_args__ = (
+        UniqueConstraint("platform", "search_term", name="uq_ad_signal_platform_term"),
         Index("ix_ad_signals_product_observed", "product_id", "observed_at"),
         Index("ix_ad_signals_listing_id", "listing_id"),
     )
@@ -34,5 +35,6 @@ class AdSignal(Base):
     platform: Mapped[AdPlatform] = mapped_column(
         Enum(AdPlatform, name="ad_platform"), nullable=False
     )
+    search_term: Mapped[str] = mapped_column(Text, nullable=False)
     ad_count_active: Mapped[int] = mapped_column(Integer, nullable=False)
     observed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)

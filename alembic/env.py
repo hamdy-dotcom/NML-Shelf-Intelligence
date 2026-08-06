@@ -19,6 +19,7 @@ from shared.models.base import Base  # noqa: E402
 import shared.models.product  # noqa: E402, F401
 import shared.models.listing  # noqa: E402, F401
 import shared.models.ad_signal  # noqa: E402, F401
+import shared.models.recommendation  # noqa: E402, F401
 
 target_metadata = Base.metadata
 

@@ -23,6 +23,14 @@ class Settings(BaseSettings):
 
     meta_ad_library_access_token: str = ""
 
+    # Genome — text embedding model must output TEXT_EMBEDDING_DIM dimensions (768)
+    genome_embedding_model: str = "intfloat/multilingual-e5-base"
+    # Calibrated against multilingual-e5-base on KSA Arabic food product titles:
+    # same-product pairs score ≥0.983; different-product pairs top out at ~0.928.
+    # 0.97 auto-applies near-identical text; 0.94 queues plausible-same for review.
+    genome_high_confidence_threshold: float = 0.97
+    genome_review_threshold: float = 0.94
+
     log_level: str = "INFO"
 
 
