@@ -8,6 +8,7 @@ from orbit.jobs import pull_meta_ads_job, pull_salla_job, start_scheduler, stop_
 from orbit.router import router as orbit_router
 from genome.router import router as genome_router
 from sentinel.router import router as sentinel_router
+from ledger.router import router as ledger_router
 from shared.config import settings
 
 logging.basicConfig(
@@ -33,6 +34,7 @@ app = FastAPI(title="NML Shelf Intelligence", version="0.1.0", lifespan=lifespan
 app.include_router(orbit_router)
 app.include_router(genome_router)
 app.include_router(sentinel_router)
+app.include_router(ledger_router)
 
 
 @app.get("/health")

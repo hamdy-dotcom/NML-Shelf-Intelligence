@@ -17,6 +17,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
 from sqlalchemy import text
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from genome.embedder import TextEmbedder
@@ -85,7 +86,14 @@ def _create_canonical(listing: Listing, embedding: list[float], db: Session) -> 
 
 def _queue_for_review(
     listing: Listing, candidates: list[CandidateMatch], db: Session
-) -> None:
+) -> bool:
+    """
+    Insert a pending recommendation for human review.
+    Returns True if a new row was inserted, False if one already existed
+    (enforced by the DB-level partial unique index on (listing_id) WHERE status=’pending’).
+    Using ON CONFLICT DO NOTHING rather than a SELECT-then-INSERT because two
+    concurrent genome passes can both pass an app-level check before either commits.
+    """
     best = candidates[0]
     evidence = {
         "listing_store": listing.store_name,
@@ -106,8 +114,9 @@ def _queue_for_review(
         f"with {round(best.similarity * 100, 1)}% text-embedding confidence. "
         f"Below auto-apply threshold ({HIGH_CONFIDENCE * 100:.0f}%) — manual review needed."
     )
-    db.add(
-        Recommendation(
+    stmt = (
+        pg_insert(Recommendation)
+        .values(
             id=uuid.uuid4(),
             type=RecommendationType.genome_match,
             product_id=best.product_id,
@@ -118,7 +127,10 @@ def _queue_for_review(
             status=RecommendationStatus.pending,
             created_at=datetime.now(timezone.utc),
         )
+        .on_conflict_do_nothing(index_elements=None)  # relies on the partial unique index
     )
+    r = db.execute(stmt)
+    return r.rowcount > 0
 
 
 def _try_gtin(listing: Listing, db: Session, result: RunResult) -> bool:
@@ -170,8 +182,8 @@ def _try_text_embedding(
             }
         )
     elif candidates and candidates[0].similarity >= REVIEW_THRESHOLD:
-        _queue_for_review(listing, candidates, db)
-        result.queued_for_review += 1
+        if _queue_for_review(listing, candidates, db):
+            result.queued_for_review += 1
     else:
         # No confident match — seed a new canonical product from this listing
         new_product = _create_canonical(listing, embedding, db)
