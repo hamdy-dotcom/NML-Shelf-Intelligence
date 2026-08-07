@@ -19,6 +19,7 @@ from atlas.router import router as atlas_router
 from atlas.seeder import seed_atlas
 from prism.router import router as prism_router
 from pulse.router import router as pulse_router, take_snapshot as pulse_snapshot
+from oracle.router import router as oracle_router
 from shared.config import settings
 from shared.db import SessionLocal
 
@@ -72,6 +73,7 @@ app.include_router(ledger_router)
 app.include_router(atlas_router)
 app.include_router(prism_router)
 app.include_router(pulse_router)
+app.include_router(oracle_router)
 
 
 @app.get("/health")

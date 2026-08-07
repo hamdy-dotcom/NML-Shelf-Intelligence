@@ -22,6 +22,7 @@ import shared.models.ad_signal  # noqa: E402, F401
 import shared.models.recommendation  # noqa: E402, F401
 import shared.models.store  # noqa: E402, F401
 import shared.models.pulse  # noqa: E402, F401
+import shared.models.shelf_slot  # noqa: E402, F401
 
 target_metadata = Base.metadata
 

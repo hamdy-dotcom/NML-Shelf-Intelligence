@@ -33,6 +33,15 @@ class Settings(BaseSettings):
 
     atlas_mock_mode: bool = True
 
+    # Oracle Phase 1 — weighted scorer (no ML until ledger has real approve/reject volume)
+    # Weights must be set intentionally; they don't need to sum to 1.0 but the team
+    # should understand the relative emphasis each signal gets.
+    oracle_weight_velocity: float = 0.30      # listing count across stores (demand proxy)
+    oracle_weight_ad_intensity: float = 0.25  # active ad count matched to product
+    oracle_weight_category_gap: float = 0.25  # placeholder — no stocking data yet
+    oracle_weight_price_fit: float = 0.20     # price vs. cluster income tier
+    oracle_top_k: int = 5                     # how many ranked candidates to return
+
     # Pulse — spike detection thresholds
     # How far back to look for the baseline period (one full window before current)
     pulse_spike_window_hours: int = 24
