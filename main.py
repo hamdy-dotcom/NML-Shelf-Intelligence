@@ -11,6 +11,7 @@ from sentinel.router import router as sentinel_router
 from ledger.router import router as ledger_router
 from atlas.router import router as atlas_router
 from atlas.seeder import seed_atlas
+from prism.router import router as prism_router
 from shared.config import settings
 
 logging.basicConfig(
@@ -39,6 +40,7 @@ app.include_router(genome_router)
 app.include_router(sentinel_router)
 app.include_router(ledger_router)
 app.include_router(atlas_router)
+app.include_router(prism_router)
 
 
 @app.get("/health")
