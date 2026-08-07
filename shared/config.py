@@ -31,6 +31,8 @@ class Settings(BaseSettings):
     genome_high_confidence_threshold: float = 0.97
     genome_review_threshold: float = 0.94
 
+    atlas_mock_mode: bool = True
+
     log_level: str = "INFO"
 
 
