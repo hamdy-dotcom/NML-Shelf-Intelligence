@@ -33,6 +33,15 @@ class Settings(BaseSettings):
 
     atlas_mock_mode: bool = True
 
+    # Pulse — spike detection thresholds
+    # How far back to look for the baseline period (one full window before current)
+    pulse_spike_window_hours: int = 24
+    # Alert when current count >= this multiple of the baseline average
+    pulse_spike_min_ratio: float = 2.0
+    # Don't alert on signals whose current count is below this — filters out noise
+    # from very low-volume terms where a 1→2 jump looks like a 100% spike
+    pulse_spike_min_absolute: int = 3
+
     log_level: str = "INFO"
 
 
